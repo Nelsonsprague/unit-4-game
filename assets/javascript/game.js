@@ -11,56 +11,61 @@ var goal;
 // Score
 var userScore;
 // Values of each crystal
-var crystalValue;
+var crystalValue1;
+var crystalValue2;
+var crystalValue3;
+var crystalValue4;
 
 // Create a function to start/reset the game
-//     Update win and loss counter text
-//     Pick a new goal (new random number)
-//     Update this on the page
-//     Create 4 new values for the 4 crystals
-//     Assign 4 new values for the 4 crystals
-//     Reset score back down to 0
-//     Update the score text on the page
+function newGame(){
 
-// Create a function to test win/lose
-//     If the player’s score === the goal
-//         Wins++
-//     Call reset function
-//     If the player’s score is > the goal
-//         Losses++
-// Call reset function
+    //     Update win and loss counter text
+    wins = 0;
+    losses = 0;
+    //     Pick a new goal (new random number)
+    goal = Math.round(Math.random() * 100 + 1);
+    //     Update this on the page
 
-// Create a click event
-//     Grab the value of the crystal that was clicked on
-//     Add that value to the player’s score
-//     Call the win/loss function
+    //     Create 4 new values for the 4 crystals
+    //     Assign 4 new values for the 4 crystals
+    crystalValue1 = Math.round(Math.random()* 12 +1)
+    crystalValue2 = Math.round(Math.random()* 12 +1)
+    crystalValue3 = Math.round(Math.random()* 12 +1)
+    crystalValue4 = Math.round(Math.random() *12 +1)
+    //     Reset score back down to 0
+    score = 0;
+    //     Update the score text on the page
+}
+function winlose(){
+if(userScore === goal){
+    // Create a function to test win/lose
+    //     If the player’s score === the goal
+    //         Wins++
+wins ++;
+    //     Call reset function
+    newGame();
+}if (userScore > goal){
 
-
-// IMPORTANT NOTE: the click events on the initial set of .number buttons WILL work... the click events
-// on the buttons created by clicking 'Reset Buttons' will NOT work. See below for more info as to why,
-// and try out the 'EVENT DELEGATION WAY'
-
-// generates/places four numbered buttons
-function createButtons() {
-    for (var i = 0; i < 4; i++) {
-        var button = $("<button>");
-        button.text("button #" + (i + 1));
-        button.addClass("number");
-        button.attr("id", i + 1);
-        $("#buttons").append(button);
-    }
+    //     If the player’s score is > the goal
+    //         Losses++
+    losses ++;
+    // Call reset function
+    newGame();
+}
 }
 
-// this creates the initial set of 4 buttons
-createButtons();
+$("#crystal-image").on("click", function(){
 
-// ======================================================================================================
+    // Create a click event
+    //     Grab the value of the crystal that was clicked on
+    crystalvalue 
+    //     Add that value to the player’s score
+    userScore = crystalValue + userScore
+    //     Call the win/loss function
+    winlose();
+})
 
-// IMPORTANT NOTE: this click event will work for all .number buttons that were created BEFORE this in
-// the JavaScript, like the initial buttons generated in line 13 above... however, remember that
-// this function will only be executed once as written. Therefore, when new .number buttons are added to
-// the page later on by JavaScript, the click will NOT apply because the click event was run before they
-// were created.
+
 
 // STANDARD CLICK EVENT WAY
 // $(".number").on("click", function() {
