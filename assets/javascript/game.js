@@ -11,10 +11,8 @@ var goal;
 // Score
 var userScore;
 // Values of each crystal
-var crystalValue1;
-var crystalValue2;
-var crystalValue3;
-var crystalValue4;
+var crystalValue= [Math.round(Math.random()* 12 +1)];
+
 
 // Create a function to start/reset the game
 function newGame(){
@@ -65,27 +63,15 @@ $("#crystal-image").on("click", function(){
     winlose();
 })
 
-
-
-// STANDARD CLICK EVENT WAY
-// $(".number").on("click", function() {
-//     var id = $(this).attr("id");
-//     alert("You clicked the button with id " + id);
-// });
-
-// ======================================================================================================
-
-// IMPORTANT NOTE: if instead you want to write one click event that will apply to new and future .number
-// buttons, you could use this syntax instead. This is called 'event delegation' in JavaScript. Note that 
-// the jQuery selector must point to an element on the page that *ALWAYS* exists, and this element must
-// also be a parent/container element that wraps around the child elements you wish to set the click
-// event on.
-
-// EVENT DELEGATION WAY (uncomment this to see the different behavior)
-// $("#buttons").on("click", ".number", function() {
-//     var id = $(this).attr("id");
-//     alert("You clicked the button with id " + id);   
-// });
+function createButtons() {
+    for (var i = 0; i < 4; i++) {
+        var button = $("<button>");
+        button.text("button #" + (i + 1));
+        button.addClass("number");
+        button.attr("id", i + 1);
+        $("#buttons").append(button);
+    }
+}
 
 // ======================================================================================================
 $("#buttons").on("click", ".number", function(){
