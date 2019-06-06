@@ -3,9 +3,9 @@
 // Create variables to track
 
 // Wins counter
-var wins;
+var wins = 0;
 // Losses counter
-var losses;
+var losses = 0;
 // Goal for the round (random number)
 var goal;
 // Score
@@ -22,8 +22,10 @@ var images = ["assets/images/big-green.jpg", "assets/images/blue.png", "assets/i
 function newGame(){
 
     //     Update win and loss counter text
-    wins = 0;
-    losses = 0;
+    // wins = 0;
+    $("#wins").text(wins);
+    // losses = 0;
+    $("#losses").text(losses);
     //     Pick a new goal (new random number)
     goal = Math.round(Math.random() * 100 + 1);
     goal = parseInt(goal);
@@ -37,7 +39,7 @@ function newGame(){
     //     Reset score back down to 0
     userScore = 0;
     userScore = parseInt(userScore);
-    $("#userscore").text(" " + userScore);
+    $("#userscore").text(userScore);
     //     Update the score text on the page
 }
 
@@ -47,6 +49,8 @@ if(userScore === goal){
     //     If the player’s score === the goal
     //         Wins++
 wins ++;
+
+$("#wins").text(wins);
     //     Call reset function
     newGame();
 }if (userScore > goal){
@@ -54,12 +58,14 @@ wins ++;
     //     If the player’s score is > the goal
     //         Losses++
     losses ++;
+    $("#losses").text(losses);
     // Call reset function
     newGame();
 }
 }
 
 function createCrystals() {
+    $("#crystal-container").empty();
     for (var i = 0; i < images.length; i++) {
         var div = $("<img>");
         div.attr("src", images[i])
