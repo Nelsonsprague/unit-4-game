@@ -13,7 +13,11 @@ var userScore;
 // Values of each crystal
 var crystalValue= [Math.round(Math.random()* 12 +1)];
 
+var images = ["assets/images/big-green.jpg", "assets/images/blue.png", "assets/images/red-cry.png", "assets/images/purp.jpg"]
+// for(i = 0; i < images.length; i++){
 
+//     $("#crystal-container").append("<img src= '" + images[i] + "'/>")
+// }
 // Create a function to start/reset the game
 function newGame(){
 
@@ -26,10 +30,7 @@ function newGame(){
 
     //     Create 4 new values for the 4 crystals
     //     Assign 4 new values for the 4 crystals
-    crystalValue1 = Math.round(Math.random()* 12 +1)
-    crystalValue2 = Math.round(Math.random()* 12 +1)
-    crystalValue3 = Math.round(Math.random()* 12 +1)
-    crystalValue4 = Math.round(Math.random() *12 +1)
+    createCrystals();
     //     Reset score back down to 0
     score = 0;
     //     Update the score text on the page
@@ -52,35 +53,28 @@ wins ++;
 }
 }
 
-$("#crystal-image").on("click", function(){
-
-    // Create a click event
-    //     Grab the value of the crystal that was clicked on
-    crystalvalue 
-    //     Add that value to the player’s score
-    userScore = crystalValue + userScore
-    //     Call the win/loss function
-    winlose();
-})
-
-function createButtons() {
-    for (var i = 0; i < 4; i++) {
-        var button = $("<button>");
-        button.text("button #" + (i + 1));
-        button.addClass("number");
-        button.attr("id", i + 1);
-        $("#buttons").append(button);
+function createCrystals() {
+    for (var i = 0; i < images.length; i++) {
+        var div = $("<img>");
+        div.attr("src", images[i])
+        div.attr("cv", Math.round(Math.random()* 12 +1));
+        div.addClass("crystal");
+        div.attr("id", i + 1);
+        $("#crystal-container").append(div);
     }
 }
+createCrystals();
 
-// ======================================================================================================
-$("#buttons").on("click", ".number", function(){
-    var id = $(this).attr("id");
-        alert("You clicked the button with id " + id);
 
+$("#crystal-container").on("click", ".crystal", function(){
+    
+    // Create a click event
+    //     Grab the value of the crystal that was clicked on
+    var cv = $(this).attr("cv");
+    
+    //     Add that value to the player’s score
+    userScore = cv + userScore;
+    //     Call the win/loss function
+    winlose();
+console.log(cv);
 })
-// click event to remove old buttons and create new ones
-$("#reset").on("click", function() {
-    $("#buttons").empty();
-    createButtons();
-});

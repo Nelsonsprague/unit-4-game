@@ -1,64 +1,74 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>simple crystal game</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script type="text/javascript" src="assets/javascript/game.js"></script>
+    <title>simple crystal game</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <style type="text/css">
 
-   
-  </style>
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+
+    </link>
 
 </head>
 
 <body>
-        <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4">Crystal Collector Game!</h1>
-                </div>
-              </div>
-              <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                      
-                      <p class="lead">You will be given a random number at the start of the game.</p>
-                      <p>There are four crystals below. By clicking on a crystal you will add a specifc amount of points to your total score. </p>
-                      <p>You win the game by amtching your total score to a random number, you lose the game if your total score goes above a random number.</p>
-                      <p> The value of each crystal is hidden from you until you click on it. </p> <P>Each time when the game starts, the value of each crystal will change!
-                          Have FUN!!!
-                      </P>
-                    </div>
-                  </div>
-
-  <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">
-                <h1>Number to Guess: <span id="goal"></span></h1></h1>
-         
+            <h1 class="display-4">Crystal Collector Game!</h1>
         </div>
-      </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
 
-      <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Your total score is:<span id="userscore"></span></h1>
-              <p class="lead"></p>
-            </div>
-          </div>
+            <p class="lead">You will be given a random number at the start of the game.</p>
+            <p>There are four crystals below. By clicking on a crystal you will add a specifc amount of points to your
+                total score. </p>
+            <p>You win the game by amtching your total score to a random number, you lose the game if your total score
+                goes above a random number.</p>
+            <p> The value of each crystal is hidden from you until you click on it. </p>
+            <P>Each time when the game starts, the value of each crystal will change!
+                Have FUN!!!
+            </P>
+        </div>
+    </div>
 
-          <div id="crystal-container">
-              
-          </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">
+                <h1>Number to Guess: <span id="goal"></span></h1>
+            </h1>
 
-          <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  
-                  <p class="lead">
-                      Wins: 
-<p></p>
-                      Losses:
-                  </p>
-                </div>
-              </div>
-  </script>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Your total score is:<span id="userscore"></span></h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+
+    <div id="crystal-container">
+
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+
+            <p class="lead">
+                Wins:
+                <p></p>
+                Losses:
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
 </body>
+
 </html>
