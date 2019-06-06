@@ -26,15 +26,21 @@ function newGame(){
     losses = 0;
     //     Pick a new goal (new random number)
     goal = Math.round(Math.random() * 100 + 1);
+    goal = parseInt(goal);
+    $("#goal").text(goal);
     //     Update this on the page
+    console.log(goal);
 
     //     Create 4 new values for the 4 crystals
     //     Assign 4 new values for the 4 crystals
     createCrystals();
     //     Reset score back down to 0
-    score = 0;
+    userScore = 0;
+    userScore = parseInt(userScore);
+    $("#userscore").text(" " + userScore);
     //     Update the score text on the page
 }
+
 function winlose(){
 if(userScore === goal){
     // Create a function to test win/lose
@@ -63,7 +69,9 @@ function createCrystals() {
         $("#crystal-container").append(div);
     }
 }
+
 createCrystals();
+newGame();
 
 
 $("#crystal-container").on("click", ".crystal", function(){
@@ -71,10 +79,12 @@ $("#crystal-container").on("click", ".crystal", function(){
     // Create a click event
     //     Grab the value of the crystal that was clicked on
     var cv = $(this).attr("cv");
-    
+    cv = parseInt(cv)
     //     Add that value to the player’s score
     userScore = cv + userScore;
+    $("#userscore").text(" " + userScore);
     //     Call the win/loss function
     winlose();
 console.log(cv);
+console.log(userScore);
 })
