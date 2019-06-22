@@ -1,7 +1,19 @@
 .crystal {
     height: 250px;
-    /* width: 250px; */
+    margin: 10px;
+    width: 240px;
+   
 }
 body {
-    color: red;
+    color: blueviolet;
+
+    background-image: url("assets/images/bg.jpg");
+}
+.jumbotron,
+#crystal-container
+{
+    width: 80%;
+    text-align: center;
+    
+    margin: 10px auto;
 }
